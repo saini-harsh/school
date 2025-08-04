@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v12.2.0',
-        'version' => '12.2.0.0',
-        'reference' => '624fb58ad893a29cdcbd1173e7db731a9d403971',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '09506b1f046beabc4d594f45130d7993999c2cd1',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -530,9 +530,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v12.2.0',
-            'version' => '12.2.0.0',
-            'reference' => '624fb58ad893a29cdcbd1173e7db731a9d403971',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '09506b1f046beabc4d594f45130d7993999c2cd1',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -990,9 +990,9 @@
             ),
         ),
         'psy/psysh' => array(
-            'pretty_version' => 'v0.12.9',
-            'version' => '0.12.9.0',
-            'reference' => '1b801844becfe648985372cb4b12ad6840245ace',
+            'pretty_version' => 'v0.12.10',
+            'version' => '0.12.10.0',
+            'reference' => '6e80abe6f2257121f1eb9a4c55bf29d921025b22',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psy/psysh',
             'aliases' => array(),
