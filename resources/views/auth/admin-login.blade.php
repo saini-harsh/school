@@ -19,7 +19,7 @@
         <img src="{{ asset('images/logo.png') }}" alt="ESchool" />
         <h2>Login Details</h2>
 
-        <form method="POST" action="{{ route('admin.login') }}">
+        <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
             <div class="input-field">
                 <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" alt="email icon" />

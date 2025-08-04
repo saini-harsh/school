@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,12 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        User::factory()->create([
+        Admin::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt(value : 'admin'),
+            'password' => Hash::make('admin'), // hashed version
+            'decrypt_pw' => 'admin',           // plain version (max 10 characters)
         ]);
     }
 }
