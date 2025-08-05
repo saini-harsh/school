@@ -5,47 +5,63 @@
     <meta charset="UTF-8">
     <title>Login - ESchool</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/assets/login.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap"
         rel="stylesheet">
+
+    <!-- Login CSS -->
+    <link rel="stylesheet" href="{{ asset('css/assets/login.css') }}">
 </head>
 
 <body>
     <div class="login-container">
-        <img src="{{ asset('images/logo.png') }}" alt="ESchool" />
+        <!-- Logo -->
+        <img src="{{ asset('images/logo.png') }}" alt="ESchool Logo" />
+
+        <!-- Heading -->
         <h2>Login Details</h2>
 
+        <!-- Login Form -->
         <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
+
+            <!-- Email Input -->
             <div class="input-field">
                 <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" alt="email icon" />
-                <input type="email"  name="email" placeholder="Enter Email Address" required>
+                <input type="email" name="email" placeholder="Enter Email Address" required>
             </div>
 
+            <!-- Password Input -->
             <div class="input-field">
                 <img src="https://img.icons8.com/ios-filled/50/000000/lock-2.png" alt="password icon" />
-                <input type="password" name="password"  placeholder="Enter Password" required>
+                <input type="password" name="password" placeholder="Enter Password" required>
             </div>
 
+            <!-- Remember / Forgot -->
             <div class="options">
-                <label><input type="checkbox"> Remember Me</label>
-                <a href="#">Forget Password?</a>
+                <label><input type="checkbox" name="remember"> Remember Me</label>
+                <a href="#">Forgot Password?</a>
             </div>
 
+            <!-- Submit Button -->
             <button class="login-btn" type="submit">SIGN IN</button>
         </form>
 
+        <!-- Quick Role Buttons -->
         <div class="roles-grid">
             <button type="button" onclick="autoLoginAdmin()">ADMIN</button>
-            <button type="button" onclick="location.href='{{ route('admin.login') }}'">INSITUTIONS</button>
+            <button type="button" onclick="location.href='{{ route('admin.login') }}'">INSTITUTIONS</button>
             <button type="button" onclick="location.href='{{ route('admin.login') }}'">TEACHER</button>
             <button type="button" onclick="location.href='{{ route('admin.login') }}'">STUDENTS / PARENTS</button>
         </div>
     </div>
+
+    <!-- Auto Login Script -->
     <script>
         function autoLoginAdmin() {
             document.querySelector('input[name="email"]').value = "admin@gmail.com";

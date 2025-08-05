@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuthController extends Controller
+class   AdminAuthController extends Controller
 {
     public function showLoginForm()
     {
@@ -17,19 +17,23 @@ class AdminAuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admin.dashboard');
+        if (Auth::guard('web')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
         }
 
-        return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
+        return back()->withErrors([
+            'email' => 'Invalid credentials.',
+        ]);
     }
 
-    public function dashboard()
+    public function logout(Request $request)
     {
-        if (!Auth::guard('admin')->check()) {
-            return redirect()->route('admin.login');
-        }
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return view('admin.dashboard');
+        return redirect()->route('admin.login');
     }
 }
