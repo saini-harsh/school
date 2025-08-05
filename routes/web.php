@@ -10,4 +10,4 @@ Route::prefix('admin')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
     Route::get('/dashboard', [AdminAuthController::class, 'dashboard'])->name('admin.dashboard');
 });
-Route::post('/', [AdminAuthController::class, 'showLoginForm']);
+Route::get('/', [AdminAuthController::class, 'showLoginForm']);
