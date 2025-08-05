@@ -3,13 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuthController;
 
-Route::prefix('admin')->group(function () {
-    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-    Route::post('/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
-    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-});
+Route::post('/', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
-Route::get('/', [AdminAuthController::class, 'showLoginForm'])->name('root');
+// Route::prefix('admin')->group(function () {
+// });
+
+Route::get('/', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 
 // Group admin routes with prefix
 // Route::prefix('admin')->group(function () {
